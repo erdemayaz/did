@@ -42,10 +42,9 @@ void reverse_diff(int length, int iterator, int* d){
  */
 int estimate_next(int* a, int length){
 	
-	//int length = 0;
-	int i, total, expanded_total;
+	int i, x, total, expanded_total;
 	int *dynamic;
-	//length = len(a);
+
 	total = ((length * (length + 1)) / 2);
 	
 	// Memory allocation for triangular matrix
@@ -69,7 +68,10 @@ int estimate_next(int* a, int length){
 	/* Last element of lowest level differences of dynamic array
 	 * adds to differences of given array.
 	 */
-	return *(dynamic + length - 1) + *(a + length - 1);
+	x = *(dynamic + length - 1);
+	free(dynamic);
+	
+	return x + *(a + length - 1);
 }
 
 #endif did
